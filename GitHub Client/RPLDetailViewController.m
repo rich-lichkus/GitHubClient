@@ -10,6 +10,7 @@
 
 @interface RPLDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
+
 - (void)configureView;
 @end
 
@@ -34,9 +35,10 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
-
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        //self.detailDescriptionLabel.text = [_detailItem description];
+        NSString *htmlURLString = [_detailItem objectForKey:@"html_url"];
+        [_webView loadRequest: [NSURLRequest requestWithURL:[NSURL URLWithString:htmlURLString]]];
     }
 }
 

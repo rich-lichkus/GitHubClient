@@ -10,111 +10,160 @@
 
 @interface RPLSideMenuViewController ()
 
+@property (strong, nonatomic) NSArray *menuOptions;
+@property (strong, nonatomic) RPLMasterViewController *masterVC;
+
 @end
 
 @implementation RPLSideMenuViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)init
 {
-    self = [super initWithStyle:style];
+    self = [super init];
     if (self) {
         // Custom initialization
-    }
+        self.menuOptions = [[NSArray alloc] initWithObjects:@"My Account",@"Users,"@"Repos",@"Gists", nil];
+                    }
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //self.tableView.delegate = self;
+    //self.tableView.dataSource = self;
+    
+    self.masterVC = [self.storyboard instantiateViewControllerWithIdentifier:@"masterVC"];
+    [self.masterVC setDelegate:self];
+    
+    [self addChildViewController:self.masterVC];
+    self.masterVC.view.frame = self.view.frame;
+    [self.view addSubview:self.masterVC.view];
+    [self.masterVC didMoveToParentViewController:self];
+    
+    [self setupPanGesture];
+    
+    
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - Pan Gesture
+-(void)setupPanGesture
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(slidePanel:)];
+    
+    pan.minimumNumberOfTouches = 1;
+    pan.maximumNumberOfTouches = 1;
+    
+    pan.delegate = self;
+    
+    [self.masterVC.view addGestureRecognizer:pan];
 }
 
+#pragma mark - Slide Panel
+
+-(void)slidePanel:(id)sender
+{
+    UIPanGestureRecognizer *pan = (UIPanGestureRecognizer *)sender;
+    
+    CGPoint velocity = [pan velocityInView:self.view];
+    CGPoint translation = [pan translationInView:self.view];
+    
+    if (pan.state == UIGestureRecognizerStateChanged)
+    {
+        if (self.masterVC.view.frame.origin.x + translation.x > 0) {
+            
+            self.masterVC.view.center = CGPointMake(self.masterVC.view.center.x + translation.x, self.masterVC.view.center.y);
+            
+            //CGFloat offset = 1 - (self.masterVC.view.frame.origin.x / self.view.frame.size.width);
+            //NSLog(@"Offset: %f", offset);
+            
+            [(UIPanGestureRecognizer *)sender setTranslation:CGPointMake(0,0) inView:self.view];
+        }
+    }
+    if (pan.state == UIGestureRecognizerStateEnded)
+    {
+        if (self.masterVC.view.frame.origin.x > self.view.frame.size.width / 8)
+        {
+            [self openMenu];
+        }
+        if (self.masterVC.view.frame.origin.x < self.view.frame.size.width / 8 )
+        {
+            [self closeMenu];
+            
+            /*[UIView animateWithDuration:.4 animations:^{
+                self.masterVC.view.frame = self.view.frame;
+            } completion:^(BOOL finished) {
+                [self closeMenu];
+            }];*/
+        }
+    }
+    
+}
+
+#pragma mark - Menu Methods
+- (void)openMenu
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        self.masterVC.view.frame = CGRectMake(self.view.frame.size.width * .5,
+                                              self.masterVC.view.frame.origin.y,
+                                              self.masterVC.view.frame.size.width,
+                                              self.masterVC.view.frame.size.height);
+                                              } completion:^(BOOL finished) { }];
+}
+
+- (void)closeMenu
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        self.masterVC.view.frame = CGRectMake(self.masterVC.view.frame.origin.x,
+                                              self.masterVC.view.frame.origin.y,
+                                              self.masterVC.view.frame.size.width,
+                                              self.masterVC.view.frame.size.height); }];
+}
+
+-(void)slideBack:(id)sender
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        self.masterVC.view.frame = self.view.frame;
+    } completion:^(BOOL finished) {
+        [self.masterVC.view removeGestureRecognizer:(UITapGestureRecognizer *)sender];
+        [self closeMenu];
+    }];
+}
+
+/*
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return self.menuOptions.count;
+    NSLog(@"here!!!!!!");
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"menuCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    cell.textLabel.text = @"name";
+    //[self.menuOptions objectAtIndex:indexPath.row];
+    NSLog(@"%@",cell.textLabel.text);
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
 */
+#pragma mark - Memory
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)didReceiveMemoryWarning
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [super didReceiveMemoryWarning];
 }
 
- */
+
+
 
 @end

@@ -10,4 +10,10 @@
 
 @interface RPLNetworkController : NSObject
 
+@property (strong, nonatomic) NSOperationQueue *avatarDownloadQueue;
+
++(RPLNetworkController *) sharedController;
+- (NSDictionary *)reposForSearchString:(NSString *)searchString;
+- (NSMutableArray *)usersForSearchString:(NSString *)searchString;
+
 @end

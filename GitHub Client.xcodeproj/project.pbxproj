@@ -23,6 +23,12 @@
 		0F4B3BD31896FCCF0026A8AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4B3BAF1896FCCF0026A8AA /* UIKit.framework */; };
 		0F4B3BDB1896FCCF0026A8AA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F4B3BD91896FCCF0026A8AA /* InfoPlist.strings */; };
 		0F4B3BDD1896FCCF0026A8AA /* GitHub_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B3BDC1896FCCF0026A8AA /* GitHub_ClientTests.m */; };
+		0F4B3BED1896FF780026A8AA /* RPLNetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B3BEC1896FF780026A8AA /* RPLNetworkController.m */; };
+		0F4B3BF418972B7B0026A8AA /* RPLSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B3BF318972B7B0026A8AA /* RPLSideMenuViewController.m */; };
+		0FD6DC601898516900E06509 /* RPLCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6DC5F1898516900E06509 /* RPLCollectionViewCell.m */; };
+		0FD6DC631898538D00E06509 /* RPLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6DC621898538D00E06509 /* RPLMainViewController.m */; };
+		0FD6DC6618985C1000E06509 /* GitHubUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6DC6518985C1000E06509 /* GitHubUser.m */; };
+		0FD6DC6918988CD800E06509 /* RPLGitHubRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6DC6818988CD800E06509 /* RPLGitHubRepo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,20 +50,32 @@
 		0F4B3BB51896FCCF0026A8AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0F4B3BB71896FCCF0026A8AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F4B3BB91896FCCF0026A8AA /* GitHub Client-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GitHub Client-Prefix.pch"; sourceTree = "<group>"; };
-		0F4B3BBA1896FCCF0026A8AA /* RPLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RPLAppDelegate.h; sourceTree = "<group>"; };
-		0F4B3BBB1896FCCF0026A8AA /* RPLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RPLAppDelegate.m; sourceTree = "<group>"; };
+		0F4B3BBA1896FCCF0026A8AA /* RPLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RPLAppDelegate.h; path = "GitHub Client/RPLAppDelegate.h"; sourceTree = "<group>"; };
+		0F4B3BBB1896FCCF0026A8AA /* RPLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RPLAppDelegate.m; path = "GitHub Client/RPLAppDelegate.m"; sourceTree = "<group>"; };
 		0F4B3BBE1896FCCF0026A8AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		0F4B3BC11896FCCF0026A8AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		0F4B3BC31896FCCF0026A8AA /* RPLMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RPLMasterViewController.h; sourceTree = "<group>"; };
 		0F4B3BC41896FCCF0026A8AA /* RPLMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RPLMasterViewController.m; sourceTree = "<group>"; };
 		0F4B3BC61896FCCF0026A8AA /* RPLDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RPLDetailViewController.h; sourceTree = "<group>"; };
 		0F4B3BC71896FCCF0026A8AA /* RPLDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RPLDetailViewController.m; sourceTree = "<group>"; };
-		0F4B3BC91896FCCF0026A8AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0F4B3BC91896FCCF0026A8AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "GitHub Client/Images.xcassets"; sourceTree = "<group>"; };
 		0F4B3BCF1896FCCF0026A8AA /* GitHub ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GitHub ClientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F4B3BD01896FCCF0026A8AA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0F4B3BD81896FCCF0026A8AA /* GitHub ClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GitHub ClientTests-Info.plist"; sourceTree = "<group>"; };
 		0F4B3BDA1896FCCF0026A8AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0F4B3BDC1896FCCF0026A8AA /* GitHub_ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GitHub_ClientTests.m; sourceTree = "<group>"; };
+		0F4B3BEB1896FF780026A8AA /* RPLNetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPLNetworkController.h; sourceTree = "<group>"; };
+		0F4B3BEC1896FF780026A8AA /* RPLNetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPLNetworkController.m; sourceTree = "<group>"; };
+		0F4B3BF218972B7B0026A8AA /* RPLSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPLSideMenuViewController.h; sourceTree = "<group>"; };
+		0F4B3BF318972B7B0026A8AA /* RPLSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPLSideMenuViewController.m; sourceTree = "<group>"; };
+		0FD6DC5E1898516900E06509 /* RPLCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPLCollectionViewCell.h; sourceTree = "<group>"; };
+		0FD6DC5F1898516900E06509 /* RPLCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPLCollectionViewCell.m; sourceTree = "<group>"; };
+		0FD6DC611898538D00E06509 /* RPLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RPLMainViewController.h; path = "GitHub Client/RPLMainViewController.h"; sourceTree = "<group>"; };
+		0FD6DC621898538D00E06509 /* RPLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RPLMainViewController.m; path = "GitHub Client/RPLMainViewController.m"; sourceTree = "<group>"; };
+		0FD6DC6418985C1000E06509 /* GitHubUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GitHubUser.h; path = "GitHub Client/GitHubUser.h"; sourceTree = "<group>"; };
+		0FD6DC6518985C1000E06509 /* GitHubUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GitHubUser.m; path = "GitHub Client/GitHubUser.m"; sourceTree = "<group>"; };
+		0FD6DC6718988CD800E06509 /* RPLGitHubRepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RPLGitHubRepo.h; path = "GitHub Client/RPLGitHubRepo.h"; sourceTree = "<group>"; };
+		0FD6DC6818988CD800E06509 /* RPLGitHubRepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RPLGitHubRepo.m; path = "GitHub Client/RPLGitHubRepo.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +105,19 @@
 		0F4B3B9F1896FCCF0026A8AA = {
 			isa = PBXGroup;
 			children = (
+				0FD6DC6718988CD800E06509 /* RPLGitHubRepo.h */,
+				0FD6DC6818988CD800E06509 /* RPLGitHubRepo.m */,
+				0FD6DC6418985C1000E06509 /* GitHubUser.h */,
+				0FD6DC6518985C1000E06509 /* GitHubUser.m */,
+				0FD6DC611898538D00E06509 /* RPLMainViewController.h */,
+				0FD6DC621898538D00E06509 /* RPLMainViewController.m */,
+				0F4B3BBA1896FCCF0026A8AA /* RPLAppDelegate.h */,
+				0F4B3BBB1896FCCF0026A8AA /* RPLAppDelegate.m */,
+				0F4B3BBD1896FCCF0026A8AA /* Main_iPhone.storyboard */,
+				0FD6DC5E1898516900E06509 /* RPLCollectionViewCell.h */,
+				0FD6DC5F1898516900E06509 /* RPLCollectionViewCell.m */,
+				0F4B3BC91896FCCF0026A8AA /* Images.xcassets */,
+				0F4B3BEE1896FF930026A8AA /* Services */,
 				0F4B3BB11896FCCF0026A8AA /* GitHub Client */,
 				0F4B3BD61896FCCF0026A8AA /* GitHub ClientTests */,
 				0F4B3BAA1896FCCF0026A8AA /* Frameworks */,
@@ -117,15 +148,14 @@
 		0F4B3BB11896FCCF0026A8AA /* GitHub Client */ = {
 			isa = PBXGroup;
 			children = (
-				0F4B3BBA1896FCCF0026A8AA /* RPLAppDelegate.h */,
-				0F4B3BBB1896FCCF0026A8AA /* RPLAppDelegate.m */,
-				0F4B3BBD1896FCCF0026A8AA /* Main_iPhone.storyboard */,
-				0F4B3BC01896FCCF0026A8AA /* Main_iPad.storyboard */,
-				0F4B3BC31896FCCF0026A8AA /* RPLMasterViewController.h */,
-				0F4B3BC41896FCCF0026A8AA /* RPLMasterViewController.m */,
 				0F4B3BC61896FCCF0026A8AA /* RPLDetailViewController.h */,
 				0F4B3BC71896FCCF0026A8AA /* RPLDetailViewController.m */,
-				0F4B3BC91896FCCF0026A8AA /* Images.xcassets */,
+				0F4B3BF218972B7B0026A8AA /* RPLSideMenuViewController.h */,
+				0F4B3BF318972B7B0026A8AA /* RPLSideMenuViewController.m */,
+				0F4B3BC31896FCCF0026A8AA /* RPLMasterViewController.h */,
+				0F4B3BC41896FCCF0026A8AA /* RPLMasterViewController.m */,
+				0F4B3BEA1896FE550026A8AA /* iPad */,
+				0F4B3BE91896FE370026A8AA /* iPhone */,
 				0F4B3BB21896FCCF0026A8AA /* Supporting Files */,
 			);
 			path = "GitHub Client";
@@ -158,6 +188,32 @@
 				0F4B3BD91896FCCF0026A8AA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0F4B3BE91896FE370026A8AA /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPhone;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		0F4B3BEA1896FE550026A8AA /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				0F4B3BC01896FCCF0026A8AA /* Main_iPad.storyboard */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		0F4B3BEE1896FF930026A8AA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0F4B3BEB1896FF780026A8AA /* RPLNetworkController.h */,
+				0F4B3BEC1896FF780026A8AA /* RPLNetworkController.m */,
+			);
+			name = Services;
+			path = "GitHub Client";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +315,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F4B3BC81896FCCF0026A8AA /* RPLDetailViewController.m in Sources */,
+				0FD6DC6918988CD800E06509 /* RPLGitHubRepo.m in Sources */,
+				0F4B3BF418972B7B0026A8AA /* RPLSideMenuViewController.m in Sources */,
 				0F4B3BB81896FCCF0026A8AA /* main.m in Sources */,
 				0F4B3BBC1896FCCF0026A8AA /* RPLAppDelegate.m in Sources */,
+				0FD6DC631898538D00E06509 /* RPLMainViewController.m in Sources */,
 				0F4B3BC51896FCCF0026A8AA /* RPLMasterViewController.m in Sources */,
+				0FD6DC601898516900E06509 /* RPLCollectionViewCell.m in Sources */,
+				0F4B3BED1896FF780026A8AA /* RPLNetworkController.m in Sources */,
+				0FD6DC6618985C1000E06509 /* GitHubUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +360,7 @@
 				0F4B3BBE1896FCCF0026A8AA /* Base */,
 			);
 			name = Main_iPhone.storyboard;
+			path = "GitHub Client";
 			sourceTree = "<group>";
 		};
 		0F4B3BC01896FCCF0026A8AA /* Main_iPad.storyboard */ = {
@@ -480,6 +543,7 @@
 				0F4B3BE21896FCCF0026A8AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0F4B3BE31896FCCF0026A8AA /* Build configuration list for PBXNativeTarget "GitHub ClientTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +552,7 @@
 				0F4B3BE51896FCCF0026A8AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
