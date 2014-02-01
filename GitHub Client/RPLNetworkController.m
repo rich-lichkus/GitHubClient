@@ -8,6 +8,7 @@
 
 #import "RPLNetworkController.h"
 #import "GitHubUser.h"
+#import "RPLGitHubRepo.h"
 
 @interface RPLNetworkController()
 
@@ -25,17 +26,27 @@
     return shared;
 }
 
-- (NSDictionary *)reposForSearchString:(NSString *)searchString
+- (NSMutableArray *)reposForSearchString:(NSString *)searchString
+//PRE:
+//POST:
 {
+    NSMutableArray* gitRepos = [NSMutableArray new];
+    
     searchString = [NSString stringWithFormat:@"https://api.github.com/search/repositories?q=%@", searchString];
     searchString = [searchString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
     NSError *error;
     NSURL *searchURL = [NSURL URLWithString:searchString];
     NSData *searchData = [NSData dataWithContentsOfURL:searchURL];
     NSDictionary *searchDictionary = [NSJSONSerialization JSONObjectWithData:searchData options: NSJSONReadingMutableContainers error: &error];
-    return searchDictionary[@"items"];
     
-    
+    for(NSDictionary *aRepo in searchDictionary[@"items"])
+    {
+        RPLGitHubRepo *repo = [RPLGitHubRepo new];
+        repo.repoName = [aRepo objectForKey:@"name"];
+        repo.repoURL = [aRepo objectForKey:@"html_url"];
+        [gitRepos addObject:repo];
+    }
+    return gitRepos;
 }
 
 - (NSMutableArray *)usersForSearchString:(NSString *)searchString
@@ -59,7 +70,7 @@
         NSLog(@"%@", error.debugDescription);
     }
     
-    // Convert dictionary to array of githubuser
+    // Convert dictionary to array of git-hub-users
     for(NSDictionary *aUser in searchDictionary[@"items"])
     {
         GitHubUser *user = [GitHubUser new];
@@ -70,9 +81,6 @@
     }
     return gitUsers;
 }
-
-
-
 
 
 @end

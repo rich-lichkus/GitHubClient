@@ -8,6 +8,7 @@
 
 #import "RPLDetailViewController.h"
 
+
 @interface RPLDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 
@@ -18,7 +19,7 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+- (void)setDetailItem:(RPLGitHubRepo *)newDetailItem
 {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
@@ -34,10 +35,8 @@
 
 - (void)configureView
 {
-    // Update the user interface for the detail item.
     if (self.detailItem) {
-        //self.detailDescriptionLabel.text = [_detailItem description];
-        NSString *htmlURLString = [_detailItem objectForKey:@"html_url"];
+        NSString *htmlURLString = [self.detailItem repoURL];
         [_webView loadRequest: [NSURLRequest requestWithURL:[NSURL URLWithString:htmlURLString]]];
     }
 }

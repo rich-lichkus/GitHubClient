@@ -10,10 +10,8 @@
 #import "RPLNetworkController.h"
 
 @protocol MenuControllerDelegate <NSObject>
-
 - (void)openMenu;
 - (void)closeMenu;
-
 @end
 
 @class RPLDetailViewController;

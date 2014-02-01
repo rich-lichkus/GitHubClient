@@ -9,9 +9,7 @@
 #import "RPLSideMenuViewController.h"
 
 @interface RPLSideMenuViewController ()
-
-@property (strong, nonatomic) NSArray *menuOptions;
-@property (strong, nonatomic) RPLMasterViewController *masterVC;
+@property (strong, nonatomic) RPLMainViewController *masterVC;
 
 @end
 
@@ -21,8 +19,6 @@
 {
     self = [super init];
     if (self) {
-        // Custom initialization
-        self.menuOptions = [[NSArray alloc] initWithObjects:@"My Account",@"Users,"@"Repos",@"Gists", nil];
                     }
     return self;
 }
@@ -31,11 +27,8 @@
 {
     [super viewDidLoad];
     
-    //self.tableView.delegate = self;
-    //self.tableView.dataSource = self;
-    
-    self.masterVC = [self.storyboard instantiateViewControllerWithIdentifier:@"masterVC"];
-    [self.masterVC setDelegate:self];
+    self.masterVC = [self.storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
+    self.masterVC.delegate = self;
     
     [self addChildViewController:self.masterVC];
     self.masterVC.view.frame = self.view.frame;
@@ -43,8 +36,6 @@
     [self.masterVC didMoveToParentViewController:self];
     
     [self setupPanGesture];
-    
-    
 }
 
 #pragma mark - Pan Gesture
@@ -75,9 +66,6 @@
             
             self.masterVC.view.center = CGPointMake(self.masterVC.view.center.x + translation.x, self.masterVC.view.center.y);
             
-            //CGFloat offset = 1 - (self.masterVC.view.frame.origin.x / self.view.frame.size.width);
-            //NSLog(@"Offset: %f", offset);
-            
             [(UIPanGestureRecognizer *)sender setTranslation:CGPointMake(0,0) inView:self.view];
         }
     }
@@ -90,12 +78,6 @@
         if (self.masterVC.view.frame.origin.x < self.view.frame.size.width / 8 )
         {
             [self closeMenu];
-            
-            /*[UIView animateWithDuration:.4 animations:^{
-                self.masterVC.view.frame = self.view.frame;
-            } completion:^(BOOL finished) {
-                [self closeMenu];
-            }];*/
         }
     }
     
@@ -131,39 +113,11 @@
     }];
 }
 
-/*
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.menuOptions.count;
-    NSLog(@"here!!!!!!");
-    
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"menuCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.textLabel.text = @"name";
-    //[self.menuOptions objectAtIndex:indexPath.row];
-    NSLog(@"%@",cell.textLabel.text);
-    return cell;
-}
-*/
 #pragma mark - Memory
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
-
-
-
 
 @end

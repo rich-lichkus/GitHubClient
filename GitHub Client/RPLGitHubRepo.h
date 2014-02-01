@@ -10,6 +10,7 @@
 
 @interface RPLGitHubRepo : NSObject
 
-@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *repoName;
+@property (strong, nonatomic) NSString *repoURL;
 
 @end

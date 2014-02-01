@@ -72,7 +72,7 @@
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         NSDictionary *repoDict = _searchResultsArray[indexPath.row];
-        self.detailViewController.detailItem = repoDict;
+     //   self.detailViewController.detailItem = repoDict;
     }
 }
 
@@ -83,7 +83,7 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSDictionary *selectedItem = self.searchResultsArray[indexPath.row];
-        [[segue destinationViewController] setDetailItem:selectedItem];
+     //   [[segue destinationViewController] setDetailItem:selectedItem];
         [[segue destinationViewController] setTitle: [selectedItem objectForKey:@"name"]];
     }
 }

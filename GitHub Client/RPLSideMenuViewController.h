@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-#import "RPLMasterViewController.h"
+#import "RPLMainViewController.h"
 
-@interface RPLSideMenuViewController : UIViewController < MenuControllerDelegate, UIGestureRecognizerDelegate>
+@interface RPLSideMenuViewController : UIViewController <MenuControllerDelegate, UIGestureRecognizerDelegate>
 
 - (void)openMenu;
 - (void)closeMenu;

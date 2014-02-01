@@ -56,8 +56,8 @@
 		0F4B3BC11896FCCF0026A8AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		0F4B3BC31896FCCF0026A8AA /* RPLMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RPLMasterViewController.h; sourceTree = "<group>"; };
 		0F4B3BC41896FCCF0026A8AA /* RPLMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RPLMasterViewController.m; sourceTree = "<group>"; };
-		0F4B3BC61896FCCF0026A8AA /* RPLDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RPLDetailViewController.h; sourceTree = "<group>"; };
-		0F4B3BC71896FCCF0026A8AA /* RPLDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RPLDetailViewController.m; sourceTree = "<group>"; };
+		0F4B3BC61896FCCF0026A8AA /* RPLDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RPLDetailViewController.h; path = "GitHub Client/RPLDetailViewController.h"; sourceTree = "<group>"; };
+		0F4B3BC71896FCCF0026A8AA /* RPLDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RPLDetailViewController.m; path = "GitHub Client/RPLDetailViewController.m"; sourceTree = "<group>"; };
 		0F4B3BC91896FCCF0026A8AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "GitHub Client/Images.xcassets"; sourceTree = "<group>"; };
 		0F4B3BCF1896FCCF0026A8AA /* GitHub ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GitHub ClientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F4B3BD01896FCCF0026A8AA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -66,8 +66,8 @@
 		0F4B3BDC1896FCCF0026A8AA /* GitHub_ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GitHub_ClientTests.m; sourceTree = "<group>"; };
 		0F4B3BEB1896FF780026A8AA /* RPLNetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPLNetworkController.h; sourceTree = "<group>"; };
 		0F4B3BEC1896FF780026A8AA /* RPLNetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPLNetworkController.m; sourceTree = "<group>"; };
-		0F4B3BF218972B7B0026A8AA /* RPLSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPLSideMenuViewController.h; sourceTree = "<group>"; };
-		0F4B3BF318972B7B0026A8AA /* RPLSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPLSideMenuViewController.m; sourceTree = "<group>"; };
+		0F4B3BF218972B7B0026A8AA /* RPLSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RPLSideMenuViewController.h; path = "GitHub Client/RPLSideMenuViewController.h"; sourceTree = "<group>"; };
+		0F4B3BF318972B7B0026A8AA /* RPLSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RPLSideMenuViewController.m; path = "GitHub Client/RPLSideMenuViewController.m"; sourceTree = "<group>"; };
 		0FD6DC5E1898516900E06509 /* RPLCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPLCollectionViewCell.h; sourceTree = "<group>"; };
 		0FD6DC5F1898516900E06509 /* RPLCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPLCollectionViewCell.m; sourceTree = "<group>"; };
 		0FD6DC611898538D00E06509 /* RPLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RPLMainViewController.h; path = "GitHub Client/RPLMainViewController.h"; sourceTree = "<group>"; };
@@ -116,6 +116,10 @@
 				0F4B3BBD1896FCCF0026A8AA /* Main_iPhone.storyboard */,
 				0FD6DC5E1898516900E06509 /* RPLCollectionViewCell.h */,
 				0FD6DC5F1898516900E06509 /* RPLCollectionViewCell.m */,
+				0F4B3BC61896FCCF0026A8AA /* RPLDetailViewController.h */,
+				0F4B3BC71896FCCF0026A8AA /* RPLDetailViewController.m */,
+				0F4B3BF218972B7B0026A8AA /* RPLSideMenuViewController.h */,
+				0F4B3BF318972B7B0026A8AA /* RPLSideMenuViewController.m */,
 				0F4B3BC91896FCCF0026A8AA /* Images.xcassets */,
 				0F4B3BEE1896FF930026A8AA /* Services */,
 				0F4B3BB11896FCCF0026A8AA /* GitHub Client */,
@@ -148,10 +152,6 @@
 		0F4B3BB11896FCCF0026A8AA /* GitHub Client */ = {
 			isa = PBXGroup;
 			children = (
-				0F4B3BC61896FCCF0026A8AA /* RPLDetailViewController.h */,
-				0F4B3BC71896FCCF0026A8AA /* RPLDetailViewController.m */,
-				0F4B3BF218972B7B0026A8AA /* RPLSideMenuViewController.h */,
-				0F4B3BF318972B7B0026A8AA /* RPLSideMenuViewController.m */,
 				0F4B3BC31896FCCF0026A8AA /* RPLMasterViewController.h */,
 				0F4B3BC41896FCCF0026A8AA /* RPLMasterViewController.m */,
 				0F4B3BEA1896FE550026A8AA /* iPad */,

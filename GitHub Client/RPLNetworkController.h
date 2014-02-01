@@ -13,7 +13,7 @@
 @property (strong, nonatomic) NSOperationQueue *avatarDownloadQueue;
 
 +(RPLNetworkController *) sharedController;
-- (NSDictionary *)reposForSearchString:(NSString *)searchString;
+- (NSMutableArray *)reposForSearchString:(NSString *)searchString;
 - (NSMutableArray *)usersForSearchString:(NSString *)searchString;
 
 @end
